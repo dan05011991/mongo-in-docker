@@ -1,0 +1,74 @@
+
+version: '3.1'
+
+services:
+  mongo1:
+    image: mongo
+    restart: always
+    hostname: mongo1
+    volumes:
+      - ./init.js:/docker-entrypoint-initdb.d/init.js
+      - ./config.yml:/etc/mongo/mongod.conf
+      - ./keyfile:/keyfile
+      - ./data/db1:/data/db
+    env_file:
+      - .env
+    ports:
+      - 27117:27017
+    networks:
+      - mongo
+    command: ['mongod', '--replSet', 'rs0', '--keyFile', '/keyfile']
+
+  mongo2:
+    image: mongo
+    restart: always
+    hostname: mongo2
+    volumes:
+      - ./init.js:/docker-entrypoint-initdb.d/init.js
+      - ./config.yml:/etc/mongo/mongod.conf
+      - ./keyfile:/keyfile
+      - ./data/db2:/data/db
+    env_file:
+      - .env
+    ports:
+      - 27217:27017
+    networks:
+      - mongo
+    command: ['mongod', '--replSet', 'rs0', '--keyFile', '/keyfile']
+
+  mongo3:
+    image: mongo
+    restart: always
+    hostname: mongo3
+    volumes:
+      - ./init.js:/docker-entrypoint-initdb.d/init.js
+      - ./config.yml:/etc/mongo/mongod.conf
+      - ./keyfile:/keyfile
+      - ./data/db3:/data/db
+    env_file:
+      - .env
+    ports:
+      - 27317:27017
+    networks:
+      - mongo
+    command: ['mongod', '--replSet', 'rs0', '--keyFile', '/keyfile']
+
+  mongo4:
+    image: mongo
+    restart: always
+    hostname: mongo4
+    volumes:
+      - ./init.js:/docker-entrypoint-initdb.d/init.js
+      - ./config.yml:/etc/mongo/mongod.conf
+      - ./keyfile:/keyfile
+      - ./data/db4:/data/db
+    env_file:
+      - .env
+    ports:
+      - 27417:27017
+    networks:
+      - mongo
+    command: ['mongod', '--replSet', 'rs0', '--keyFile', '/keyfile']
+
+networks:
+  mongo:
