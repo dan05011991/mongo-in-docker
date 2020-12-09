@@ -9,5 +9,13 @@ Base solution to run a mongo cluster with default username and password authenti
   - Update permissions of keyfile `chmod 400 <path-to-keyfile>`
   - Run `docker-compose up -d`
 
+# Initialise Replica Set
+  - `docker exec -i mongo_mongo1_1 mongo -u admin -p admin < init.js`
+
+# Reconfig Replica Set
+  - `docker exec -i mongo_mongo1_1 mongo -u admin -p admin < reconfig.js`
+
 # Some Useful Commands
+  - `docker exec -i mongo_mongo1_1 mongo -u admin -p admin < init.js`
+  - `docker exec -i mongo_mongo1_1 mongo -u admin -p admin < reconfig.js`
   - `docker-compose up --force-recreate -V --remove-orphans`
