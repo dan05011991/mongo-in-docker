@@ -4,7 +4,7 @@ Base solution to run a mongo cluster with default username and password authenti
 
 ## Setup
   - Clone repo
-  - Update `docker-compose` `hostname` with the correct machine names (to match certificates)
+  - Update `docker-compose` `hostname` with the correct machine names (to match certificates [if applicable])
   - Generate a new keyfile `openssl rand -base64 756 > <path-to-keyfile>` 
   - Update permissions of keyfile `chmod 400 <path-to-keyfile>`
   - Run `docker-compose up -d`
