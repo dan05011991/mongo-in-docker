@@ -7,8 +7,8 @@ services:
     restart: always
     hostname: mongo1
     volumes:
-      - ./init.js:/docker-entrypoint-initdb.d/init.js
-      - ./reconfig.js:/docker-entrypoint-initdb.d/reconfig.js
+      - ./init.js:/tmp/init.js
+      - ./reconfig.js:/tmp/reconfig.js
       - ./keyfile:/keyfile
       - ./data/db1:/data/db
     env_file:
@@ -24,8 +24,8 @@ services:
     restart: always
     hostname: mongo2
     volumes:
-      - ./init.js:/docker-entrypoint-initdb.d/init.js
-      - ./reconfig.js:/docker-entrypoint-initdb.d/reconfig.js
+      - ./init.js:/tmp/init.js
+      - ./reconfig.js:/tmp/reconfig.js
       - ./keyfile:/keyfile
       - ./data/db2:/data/db
     env_file:
@@ -41,8 +41,8 @@ services:
     restart: always
     hostname: mongo3
     volumes:
-      - ./init.js:/docker-entrypoint-initdb.d/init.js
-      - ./reconfig.js:/docker-entrypoint-initdb.d/reconfig.js
+      - ./init.js:/tmp/init.js
+      - ./reconfig.js:/tmp/reconfig.js
       - ./keyfile:/keyfile
       - ./data/db3:/data/db
     env_file:
@@ -58,8 +58,8 @@ services:
     restart: always
     hostname: mongo4
     volumes:
-      - ./init.js:/docker-entrypoint-initdb.d/init.js
-      - ./reconfig.js:/docker-entrypoint-initdb.d/reconfig.js
+      - ./init.js:/tmp/init.js
+      - ./reconfig.js:/tmp/reconfig.js
       - ./keyfile:/keyfile
       - ./data/db4:/data/db
     env_file:
